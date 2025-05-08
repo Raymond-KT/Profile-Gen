@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "profile-report"
+version = "0.1.0"
+description = ""
+authors = ["theo"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+panda = "^0.3.1"
+openai = "^1.77.0"
+matplotlib = "^3.10.1"
+koreanize-matplotlib = "^0.1.1"
+streamlit = "^1.45.0"
+python-docx = "^1.1.2"
+python-pptx = "^1.0.2"
+python-pdf = "^0.40"
+fpdf = "^1.7.2"
+ptl = "^0.3.0"
+google-api-python-client = "^2.169.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
