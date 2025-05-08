@@ -18,7 +18,7 @@ def search_image(name, organization, position):
         service = build("customsearch", "v1", developerKey=st.secrets["api_keys"]["google_custom_search"])
         res = service.cse().list(
             q=query,
-            cx=st.secrets["api_keys"]["google_custom_search_cx"],
+            cx=st.secrets["api_keys"]["google_custom_search"],
             searchType="image",
             num=1
         ).execute()
@@ -32,7 +32,7 @@ def search_additional_info(query):
         service = build("customsearch", "v1", developerKey=st.secrets["api_keys"]["google_custom_search"])
         res = service.cse().list(
             q=query,
-            cx=st.secrets["api_keys"]["google_custom_search_cx"],
+            cx=st.secrets["api_keys"]["google_custom_search"],
             num=1
         ).execute()
         return res['items'][0]['snippet']
