@@ -7,12 +7,12 @@ from docx import Document
 from docx.shared import Inches
 
 # OpenAI API 설정
-client = OpenAI(api_key=st.secrets["openai"]["api_key"])
+client = OpenAI(api_key=st.secrets["api_keys"]["openai"])
 
 # Perplexity API 설정
 url = "https://api.perplexity.ai/chat/completions"
 headers = {
-    "Authorization": f"Bearer {st.secrets['perplexity']['api_key']}",
+    "Authorization": f"Bearer {st.secrets['api_keys']['perplexity']}",
     "Content-Type": "application/json"
 }
 
@@ -22,7 +22,7 @@ def search_image(name, organization, position):
     if not query.strip():
         return ""
     try:
-        service = build("customsearch", "v1", developerKey=st.secrets["google"]["developer_key"])
+        service = build("customsearch", "v1", developerKey=st.secrets["api_keys"]["google"])
         res = service.cse().list(
             q=query,
             cx="67bfdddde46d943e2",
@@ -36,10 +36,10 @@ def search_image(name, organization, position):
 
 def search_additional_info(query):
     try:
-        service = build("customsearch", "v1", developerKey="AIzaSyAtyJ3hVlio1TFLGjGGtkoX4Rb8PsPM6aw")
+        service = build("customsearch", "v1", developerKey=st.secrets["api_keys"]["google"])
         res = service.cse().list(
             q=query,
-            cx="6366dd1af75f64211",
+            cx="71fc115fa4287401d",
             num=1
         ).execute()
         return res['items'][0]['snippet']
