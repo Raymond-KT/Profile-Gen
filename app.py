@@ -1,13 +1,10 @@
 import streamlit as st
-from openai import OpenAI
 from googleapiclient.discovery import build
 import requests
 from io import BytesIO
 from docx import Document
 from docx.shared import Inches
 
-# OpenAI API 설정
-client = OpenAI(api_key=st.secrets["api_keys"]["openai"])
 
 # Perplexity API 설정
 url = "https://api.perplexity.ai/chat/completions"
